@@ -122,27 +122,28 @@
 		//menampilkan data table
 		function tampil_data(){
 			$.ajax({
-				url: '<?php echo base_url(); ?>Siswa/ambildata',
+				url: '<?php echo base_url(); ?>C_Index/ambilData',
 				type: 'POST',
 				dataType: 'json',
 				success: function(response){
 					console.log(response);
 					var i;
-					var no =0;
+					var no = 0;
 					var html = "";
-					for(i=0; i < response.lenght; i++){
+					for(i=0;i < response.length ; i++){
 						no++;
-						html=html + '<tr'
-								  + '<td>' + no + '</td>'
-								  + '<td>' + response[i].noinduk + '</td>'
-								  + '<td>' + response[i].noinduk + '</td>'
-								  + '<td>' + response[i].noinduk + '</td>'
-								  + '<td>' + response[i].noinduk + '</td>'
-								  + '<td style="width:16.66%;">' + '<span><button data-id="'+response[i].noinduk+'"class="btn btn-success btn_edit">Edit</button><button style="margin-left; 5px" data-id="'+response[i].noinduk+'" class="btn btn-danger btn_hapus">Hapus</button></span>'+ '</td>'
-								  + '</tr>';
+						html = html + '<tr>'
+									+ '<td>' + no  + '</td>'
+									+ '<td>' + response[i].noinduk  + '</td>'
+									+ '<td>' + response[i].nama  + '</td>'
+									+ '<td>' + response[i].alamat  + '</td>'
+									+ '<td>' + response[i].hobi  + '</td>'
+									+ '<td style="width: 16.66%;">' + '<span><button data-id="'+response[i].noinduk+'" class="btn btn-primary btn_edit">Edit</button><button style="margin-left: 5px;" data-id="'+response[i].noinduk+'" class="btn btn-danger btn_hapus">Hapus</button></span>'  + '</td>'
+									+ '</tr>';
 					}
 					$("#tbl_data").html(html);
 				}
+
 			});
 		}
 
